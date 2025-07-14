@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>게임 결과</title>
+  <style>
+    body { font-family: sans-serif; background: #171612; color: #fff; }
+    h2 { text-align: center; margin-top: 50px; }
+    .result-list { max-width: 500px; margin: 30px auto; }
+    .player {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      background: #222; margin: 5px 0; padding: 10px;
+      border-radius: 8px;
+    }
+    .job { font-size: 14px; color: #aaa; }
+    button { display: block; margin: 30px auto; padding: 10px 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h2>게임 결과</h2>
+  <div class="result-list" id="resultList"></div>
+  <button onclick="location.href='index.html'">처음으로</button>
+
+  <script>
+    // URL에서 count 값 읽기
+    const urlParams = new URLSearchParams(window.location.search);
+    const count = parseInt(urlParams.get('count')) || 8; // 기본값 8
+
+    const list = document.getElementById('resultList');
+
+    // LLM-1 ~ LLM-(count-1)
+    for (let i = 1; i <= count - 1; i++) {
+      const div = document.createElement('div');
+      div.className = 'player';
+      div.innerHTML = `<span>LLM-${i}</span><span class="job">AI 플레이어</span>`;
+      list.appendChild(div);
+    }
+
+    // 마지막에 player 추가
+    const playerDiv = document.createElement('div');
+    playerDiv.className = 'player';
+    playerDiv.innerHTML = `<span>player</span><span class="job">당신</span>`;
+    list.appendChild(playerDiv);
+  </script>
+</body>
+</html>
