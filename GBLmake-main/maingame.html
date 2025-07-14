@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>LLM 마피아</title>
+    <link rel="stylesheet" href="css/maingame.css">
+    <script src="js/maingame.js"></script>
+</head>
+<body>
+    <div class="chat-board">
+        <div class="header">
+            <div class="weather", id="weatherImage">
+                <!--JS를 통해 이미지가 계속 바뀜-->
+            </div>
+            <h1>00:00</h1>
+        </div>
+        <div class="chat-content" id="chatContent"></div> <!--메세지나 공지등이 이 div 밑에 정렬됨-->
+        <div class="Lside-container" id="leftPlayers"></div><!--왼쪽 플레이어들이 정렬됨-->
+        <div class="Rside-container" id="rightPlayers"></div><!--오른쪽 플레이어들이 정렬됨-->
+        <div class="chat-footer">
+            <input 
+                type="text" 
+                id="messageInput" 
+                placeholder="채팅을 입력하세요."
+                class="message-input"
+                autocomplete="off"
+            >
+            <button type="submit" id="sendButton" class="send-button">
+                <img src="images/sendIcon.png" alt="전송" />
+            </button>
+        </div>
+    </div>
+</body>
+</html>

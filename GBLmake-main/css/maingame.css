@@ -1,0 +1,291 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #171612;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 채팅창*/
+.chat-board {
+  width: 400px;
+  height: 600px;
+  background-color: #555151;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 헤더(현재 시간 나타냄)*/
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  padding: 0 15px;
+  gap: 20px;
+  background-color: #3A3A3A;
+  color: white;
+  font-weight: bold;
+}
+
+/* 시간 구별 이미지*/
+.weather {
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+}
+
+/* 시간 글자*/
+.h1 {
+  font-size: 30px;
+  margin: 0;
+}
+
+/* 채팅 올라오는 곳*/
+.chat-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* 채팅 입력하는 곳*/
+.chat-footer {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+/* 글자 입력하는 곳*/
+.message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* 채팅창*/
+.send-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* 전송 버튼*/
+.send-button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* 채팅 객체 (유저)*/
+.chat-message-user {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  margin-bottom: 10px;
+}
+
+/* 채팅 버블(유저)*/
+.message-bubble-user {
+  background-color: #e8f719;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-top: 2px;
+  word-break: break-word;
+}
+
+/* 채팅 객체 (봇)*/
+.chat-message-bot {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* 채팅 이미지(봇)*/
+.bot-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* 이름 + 이미지 묶음 (봇)*/
+.bot-chat-image-context{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 8px;
+  position: absolute;
+  top: 0;
+}
+
+/* 채팅 이름 텍스트(봇) */
+.bot-name {
+  font-size: 12px;
+  color: #ffffff;
+  margin-top: 2px;
+}
+
+/* 채팅 버블(봇)*/
+.message-bubble-bot {
+  background-color: #d7d7d7;
+  border-radius: 10px;
+  padding: 8px 12px;
+  max-width: 60%;
+  margin-left: 45px;
+  word-break: break-word;
+}
+
+/* 공지 텍스트가 들어가는 박스 */
+.announce-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center; /* 가운데 정렬 */
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* 공지 텍스트 */
+.announce-message {
+  font-size: 12px;
+  color: #ffffff;
+  margin-top: 2px;
+}
+
+/* 메세지*/
+.message-text {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* 양쪽 플레이어 컨테이너 */
+.Lside-container, .Rside-container {
+  position: absolute;
+  top: 100px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/*왼쪽 플레이어 리스트*/
+.Lside-container {
+  left: 10px;
+}
+
+/*오른쪽 플레이어 리스트*/
+.Rside-container {
+  right: 10px;
+}
+
+/* 플레이어 아이콘 스타일 */
+.player-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* 왼쪽/오른쪽 컨테이너 위치 */
+.Lside-container, .Rside-container {
+  position: absolute;
+  top: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.Lside-container { left: 10px; }
+.Rside-container { right: 10px; }
+
+/* 플레이어 묶음 */
+.player-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  position: relative;
+}
+
+/* 직업 이미지 */
+.player-role-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  position: absolute;
+}
+
+/* 플레이어 이미지 */
+.player-icon-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/*플레이어 사망시 출력되는 이미지*/
+.player-death-img {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2; /* 아이콘보다 위에 */
+  pointer-events: none;
+}
+
+/* 이름 */
+.player-name {
+  margin-top: 6px;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+}
+
+/*직업 수정*/
+.Lside-container .player-role-img {
+  top: 0;
+  left: 65px;
+}
+
+.Rside-container .player-role-img {
+  top: 0;
+  right: 65px;
+}
+
+/*투표 버튼*/
+.vote-button {
+  margin-top: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.vote-button:hover {
+  background-color: #c0392b;
+}
+
+/*투표 점*/
+.vote-indicator {
+  color: yellow;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 3px;
+}

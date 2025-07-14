@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>인원 수 설정</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; background: #171612; color: #fff; }
+    h2 { margin-top: 50px; }
+    .controls { margin: 30px; font-size: 24px; }
+    button { margin: 10px; padding: 10px 20px; font-size: 20px; }
+  </style>
+</head>
+<body>
+  <h2>[인원 수 설정]</h2>
+  <div class="controls">
+    <button type="button" onclick="changeCount(-1)">-</button>
+    <span id="count">8</span>
+    <button type="button" onclick="changeCount(1)">+</button>
+  </div>
+  <button onclick="goToMaingame()">확인</button>
+  <br>
+  <button onclick="location.href='index.html'">뒤로</button>
+
+  <script>
+    let count = 8;
+    function changeCount(delta) {
+      count += delta;
+      if (count < 4) count = 4;
+      if (count > 12) count = 12;
+      document.getElementById('count').textContent = count;
+    }
+    
+    function goToResult() {
+      // count 값을 쿼리스트링으로 result.html에 전달
+      location.href = 'result.html?count=' + count;
+    }
+
+    function goToMaingame() {
+      // count 값을 쿼리스트링으로 maingame.html에 전달
+      location.href = 'maingame.html?count=' + count;
+    }
+  </script>
+</body>
+</html>
